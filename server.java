@@ -7,7 +7,7 @@ public class Server {
 
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(8080)) {
-            System.out.println("Сървърът е стартиран и слуша на порт 8080...");
+            System.out.println("Server is started and it listens at port 8080...");
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
@@ -71,18 +71,18 @@ public class Server {
                             String name = parts[1];
                             int grade = Integer.parseInt(parts[2]);
                             addStudent(name, grade);
-                            out.println("Студентът е добавен успешно.");
+                            out.println("The student is added successfully.");
                             break;
                         case "LIST":
                             List<String> grades = getAllGrades();
-                            out.println("Оценки: " + String.join(", ", grades));
+                            out.println("Grades: " + String.join(", ", grades));
                             break;
                         case "AVERAGE":
                             double average = calculateAverageGrade();
-                            out.println("Средната оценка е: " + average);
+                            out.println("Avg grade: " + average);
                             break;
                         default:
-                            out.println("Невалидна команда.");
+                            out.println("Invalid command.");
                     }
                 }
             } catch (IOException e) {

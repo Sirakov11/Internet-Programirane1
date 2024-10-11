@@ -8,11 +8,11 @@ public class Client {
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
              BufferedReader console = new BufferedReader(new InputStreamReader(System.in))) {
 
-            System.out.println("Свързани сте със сървъра.");
+            System.out.println("Connected with the server.");
 
             String request;
             while (true) {
-                System.out.println("Изберете команда: ADD, LIST, AVERAGE или EXIT:");
+                System.out.println("Choose command: ADD, LIST, AVERAGE или EXIT:");
                 request = console.readLine();
 
                 if ("EXIT".equalsIgnoreCase(request)) {
@@ -21,7 +21,7 @@ public class Client {
 
                 out.println(request);
                 String response = in.readLine();
-                System.out.println("Отговор от сървъра: " + response);
+                System.out.println("Respond from server: " + response);
             }
 
         } catch (IOException e) {
